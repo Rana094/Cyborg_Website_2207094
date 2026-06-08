@@ -1,0 +1,216 @@
+/* ==========================================
+   CYBORG GAMING CLUB - COMMITTEE STYLES
+   ========================================== */
+
+.committee-container {
+    padding: 60px 0;
+}
+
+/* Hierarchy Tiers */
+.tier-title {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.tier-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background: var(--color-secondary);
+}
+
+.committee-tier {
+    margin-bottom: 60px;
+}
+
+/* Tier 1: Executive Board (President & VP) */
+.tier-1-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.tier-1-grid .committee-member-card {
+    width: 100%;
+    max-width: 320px;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.1);
+}
+
+.tier-1-grid .committee-member-card:hover {
+    box-shadow: var(--glow-cyan);
+    transform: translateY(-5px);
+}
+
+.tier-1-grid .member-avatar {
+    width: 130px;
+    height: 130px;
+}
+
+/* Tier 2: Secretariat & Treasury */
+.tier-2-grid {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 30px;
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.tier-2-grid .committee-member-card {
+    width: 100%;
+    max-width: 300px;
+}
+
+.tier-2-grid .committee-member-card {
+    border-color: var(--color-secondary);
+}
+
+.tier-2-grid .committee-member-card:hover {
+    box-shadow: var(--glow-purple);
+    transform: translateY(-5px);
+}
+
+/* Tier 3: Coordinators & Leads */
+.tier-3-grid,
+.tier-4-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* Member Card Styling */
+.committee-member-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 30px 20px;
+    text-align: center;
+    transition: all var(--transition-speed) ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.committee-member-card:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-5px);
+}
+
+.member-avatar {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    border: 3px solid rgba(30, 34, 53, 0.8);
+    background-color: #1a1d2e;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: border-color var(--transition-speed);
+}
+
+.committee-member-card:hover .member-avatar {
+    border-color: var(--color-primary);
+}
+
+.member-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Avatar placeholder logic (if image is missing/not uploaded yet) */
+.member-avatar-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 243, 255, 0.1), rgba(171, 0, 255, 0.1)), #151824;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-family: var(--font-heading);
+}
+
+.member-name {
+    font-size: 1.25rem;
+    margin-bottom: 5px;
+    color: var(--color-text-white);
+}
+
+.member-position {
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+}
+
+.member-info-list {
+    list-style: none;
+    font-size: 0.85rem;
+    color: var(--color-text-gray);
+    margin-top: 15px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.member-info-list li span {
+    color: var(--color-text-white);
+    font-weight: 500;
+}
+
+/* Responsive Committee CSS */
+@media (max-width: 992px) {
+    .tier-3-grid,
+    .tier-4-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .tier-1-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .tier-1-grid .committee-member-card {
+        max-width: 100%;
+    }
+    
+    .tier-3-grid,
+    .tier-4-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .tier-2-grid .committee-member-card {
+        max-width: 100%;
+    }
+}
